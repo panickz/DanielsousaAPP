@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Danielsousa</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+<div id="wrapper">
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="btn-responsive-menu"> <span class="span-bar"></span> <span class="span-bar"></span> <span class="span-bar"></span> </div>
+        <nav id="nav">
+            <div class="box-logo"><a href="index.html"><img alt="logo" src="images/logo.png"/></a></div>
+            <div class="box-logo-mobile"><a href="index.html"><img alt="logo" src="images/logo-mobile.png"/></a></div>
+            <ul class="nav">
+
+                <!-- CHANGE THE MENU TITLES HERE -->
+                <li <% if @page == 'home' %>  class='current' <% end %>><a id="link-profile" href="/" >
+                        <div class="menu-name">My Profile</div>
+                    </a></li>
+                <li <% if @page == 'portfolio' %>  class='current' <% end %>><a id="link-portfolio" href="/portfolio" >
+                        <div class="menu-name">Portfolio</div>
+                    </a></li>
+                <li <% if @page == 'resume' %>  class='current' <% end %>><a id="link-resume" href="/resume" >
+                        <div class="menu-name">Resume</div>
+                    </a></li>
+                <li <% if @page == 'contact' %>  class='current' <% end %>><a id="link-contact" href="/contact">
+                        <div class="menu-name">Contact</div>
+                    </a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- #HEADER ENDS HERE -->
+
+    <%= yield %>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>
+</html>
