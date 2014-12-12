@@ -1,5 +1,4 @@
 <div id="container">
-  <%= debug @skills %>---
     <!-- PROFILE SECTION -->
 
     <section id="profile">
@@ -8,76 +7,25 @@
             <div class="two-third-first"><!-- two-third-first Starts here-->
                 <h3>Latest Jobs</h3>
                 <div class="spacer"></div>
-
+                <%#= debug @skills %>
                 <!-- Timeline -->
                 <ul class="timeline">
-                  <%= debug @jobs %>
-                  <% @jobs.each do |job| %>
 
+
+                <% @jobs.each do |job| %>
                       <li><!-- Item Starts Here-->
-                        <div class="date"><%=job.first_date%> - <%=job.seconde_date%></div>
+                        <div class="date"><%=job.date%></div>
                         <div class="icon"><i class="<%=job.icon%>"></i></div>
-                        <div class="info"> <span class="type"><%=job.position%></span> <span class="company green"><%=job.title%></span>
-                          <p><%=job.text%></p>
+                        <div class="info"> <span class="type"><%=job.position%></span> <span class="company green"><%=job.company%></span>
+                          <p><%=job.description%></p>
                         </div>
                       </li>
+                <% end %>
 
-                  <% end %>
-                    <!-- Item Ends Here-->
 
-                    <li><!-- Item Starts Here-->
-                        <div class="date">2011 - 2013</div>
-                        <div class="icon"><i class="icon-camera"></i></div>
-                        <div class="info"> <span class="type">Photographer</span> <span class="company green">Fashion Design Magazine</span>
-                            <p>Heaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, maiores sint possimus distinctio tenetur in magni animi pariatur sed. Consequatur, earum, sunt a tenetur.</p>
-                        </div>
-                    </li>
-                    <!-- Item Ends Here-->
-
-                    <li><!-- Item Starts Here-->
-                        <div class="date">2012 - 2013</div>
-                        <div class="icon"><i class="icon-facetime-video"></i></div>
-                        <div class="info"> <span class="type">Movie Director</span> <span class="company green">Warner & Friends</span>
-                            <p>Heaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, maiores sint possimus distinctio tenetur in magni animi pariatur sed. Consequatur, earum, sunt a tenetur.</p>
-                        </div>
-                    </li>
                     <!-- Item Ends Here-->
                 </ul>
                 <!-- Timeline Ends Here-->
-
-                <h3>Education & Training</h3>
-                <div class="spacer"></div>
-                <!-- Timeline -->
-                <ul class="timeline">
-                    <li><!-- Item Starts Here-->
-                        <div class="date">2007 - 2012</div>
-                        <div class="icon"><i class="icon-book"></i></div>
-                        <div class="info"> <span class="type">Master Graphic Designer</span> <span class="company green">School of Arts</span>
-                            <p>Heaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, maiores sint possimus distinctio tenetur in magni animi pariatur sed. Consequatur, earum, sunt a tenetur.</p>
-                        </div>
-                    </li>
-                    <!-- Item Ends Here-->
-
-                    <li><!-- Item Starts Here-->
-                        <div class="date">2008 - 2009</div>
-                        <div class="icon"><i class="icon-book"></i></div>
-                        <div class="info"> <span class="type">Photoshop in 100 Hours</span> <span class="company green">Envato</span>
-                            <p>Heaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, maiores sint possimus distinctio tenetur in magni animi pariatur sed. Consequatur, earum, sunt a tenetur.</p>
-                        </div>
-                    </li>
-                    <!-- Item Ends Here-->
-
-                    <li><!-- Item Starts Here-->
-                        <div class="date">2009 - 2010</div>
-                        <div class="icon"><i class="icon-book"></i></div>
-                        <div class="info"> <span class="type">Iconik Designer</span> <span class="company green">The less & the more</span>
-                            <p>Heaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, maiores sint possimus distinctio tenetur in magni animi pariatur sed. Consequatur, earum, sunt a tenetur.</p>
-                        </div>
-                    </li>
-                    <!-- Item Ends Here-->
-                </ul>
-                <!-- Timeline Ends Here-->
-
             </div>
             <!-- two-third-first Ends here-->
 
@@ -85,57 +33,52 @@
 
                 <!-- Skills-->
                 <h3>Skills</h3>
-                <h4 class="skill-type spacer"><i class="icon-edit"></i>&nbsp;&nbsp; Web Design</h4>
+                <h4 class="skill-type spacer"><i class="icon-edit"></i>&nbsp;&nbsp; Web Development</h4>
                 <ul class="skills">
+                  <% @a = 1 %>
+                  <% @dev.each do |d| %>
+                      <%
+                         if (@a == 1)
+                           @class='bg-green'
+                         else
+                           @class=''
+                         end
+                      %>
                     <li>
-                        <div class="animate bg-green" style="width:99%;"><span>Web Design&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;99%</span></div>
+                        <div class="animate <%=@class%>" style="width:<%=d.level%>%;"><span><%=d.name%>&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;<%=d.level%>%</span></div>
                     </li>
-                    <li>
-                        <div class="animate" style="width:97%;"><span>Photoshop&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;97%</span></div>
-                    </li>
-                    <li>
-                        <div class="animate" style="width:88%;"><span>Css&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;88%</span></div>
-                    </li>
-                    <li>
-                        <div class="animate" style="width:67%;"><span>Java Script&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;67%</span></div>
-                    </li>
-                    <li>
-                        <div class="animate" style="width:54%;"><span>My Sql&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;54%</span></div>
-                    </li>
-                    <li>
-                        <div class="animate" style="width:43%;"><span>Maya&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;43%</span></div>
-                    </li>
+                      <% @a = 1 + @a %>
+                  <% end %>
                 </ul>
-                <h4 class="skill-type"><i class="icon-camera"></i>&nbsp;&nbsp; Photography</h4>
+                <h4 class="skill-type"><i class="icon-camera"></i>&nbsp;&nbsp; Web Design</h4>
                 <ul class="skills">
-                    <li>
-                        <div class="animate" style="width:65%;"><span>Sony&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;65%</span></div>
-                    </li>
-                    <li>
-                        <div class="animate" style="width:45%;"><span>Nikon&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;45%</span></div>
-                    </li>
-                    <li>
-                        <div class="animate bg-green" style="width:98%;"><span>Canon&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;98%</span></div>
-                    </li>
-                    <li>
-                        <div class="animate" style="width:35%;"><span>Tamrom&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;35%</span></div>
-                    </li>
-                    <li>
-                        <div class="animate" style="width:54%;"><span>Sigma&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;54%</span></div>
-                    </li>
+                  <% @a = 1 %>
+                  <% @des.each do |d| %>
+                      <%
+                         if (@a == 1)
+                           @class='bg-green'
+                         else
+                           @class=''
+                         end
+                      %>
+                      <li>
+                        <div class="animate <%=@class%>" style="width:<%=d.level%>%;"><span><%=d.name%>&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;<%=d.level%>%</span></div>
+                      </li>
+                      <% @a = 1 + @a %>
+                  <% end %>
                 </ul>
                 <h4 class="skill-type"><i class="icon-random"></i>&nbsp;&nbsp; Other Random Skills</h4>
                 <ul class="skills-2">
-                    <li><span><i class="icon-glass"></i>&nbsp;&nbsp;Cocktail Maker | The Best</span>
+                    <li><span><i class="icon-glass"></i>&nbsp;&nbsp;Snowboard| Like a Pro</span>
                         <div class="animate  bg-green" style="width:99%;"></div>
                     </li>
-                    <li><span><i class="icon-food"></i>&nbsp;&nbsp;Cooking | Excellent</span>
+                    <li><span><i class="icon-food"></i>&nbsp;&nbsp;Cooking | You will not die</span>
                         <div class="animate" style="width:97%;"></div>
                     </li>
-                    <li><span><i class="icon-plane"></i>&nbsp;&nbsp;Pilot | Very Good</span>
+                    <li><span><i class="icon-plane"></i>&nbsp;&nbsp;Travelling | Very Good ( I hope )</span>
                         <div class="animate" style="width:88%;"></div>
                     </li>
-                    <li><span><i class="icon-puzzle-piece"></i>&nbsp;&nbsp;Puzzle Maker | Very Bad</span>
+                    <li><span><i class="icon-puzzle-piece"></i>&nbsp;&nbsp;Puzzles | Very Bad</span>
                         <div class="animate bg-red" style="width:27%;"></div>
                     </li>
                 </ul>
@@ -147,12 +90,7 @@
     <!-- PROFILE SECTION ENDS -->
 
     <!-- FOOTER SECTION -->
-    <div id="footer">
-        <div class="inner-footer">
-            <div class="one-half-first copyright white">All Rights Reserved to Webfolio 2013</div>
-            <div class="one-half-last txt-right"><a class="sc-icons" href="#"><i class="icon-twitter green"></i></a><a class="sc-icons" href="#"><i class="icon-facebook green"></i></a><a class="sc-icons" href="#"><i class="icon-pinterest green"></i></a><a class="sc-icons" href="#"><i class="icon-linkedin green"></i></a><a class="sc-icons" href="#"><i class="icon-flickr green"></i></a></div>
-        </div>
-    </div>
+  <%= render :template => 'layouts/footer' -%>
     <!-- #footer -->
 </div>
 <!-- #container -->

@@ -3,25 +3,38 @@
     <!-- PROFILE SECTION -->
     <section id="profile">
         <div class="content">
-            <div class="one-half-first"> <img class="profile-img" alt="profile" src="images/profile-1.jpg"/> </div>
-            <div class="one-half-last">
-                <h1>Stefano Schintu</h1>
-                <h5 class="navy">Photographer | Multimedia Designer | Graphic Designer</h5>
-                <p>I'm a creative, a photographer and a multimedia designer. <strong>Love to Create so you can Enjoy!!!</strong></p>
-                <p>Aliquam, deserunt, a, quidem provident ipsam eveniet doloremque perferendis animi veniam temporibus illo delectus inventore expedita sapiente amet nihil est sequi. Molestiae, unde, harum, dicta perferendis nesciunt quae nemo cum mollitia aliquam similique voluptate tenetur pariatur!</p>
-                <p><a class="bt-navy spacer fx1" href="/portfolio">Check my Portfolio &nbsp;&nbsp;<i class="icon-folder-open green"></i></a>&nbsp;&nbsp;<a class="bt-white fx1" href="/contact">Contact Me &nbsp;&nbsp;<i class="icon-envelope green"></i></a></p>
+            <!--<div class="one-half-first"> <img class="profile-img" alt="<%=@info.name%>" src="<%= asset_path @info_cover_photo %>"/> </div>-->
+            <div class="">
+                <h1><%=@info.name%></h1>
+                <h5 class="navy"><%=@info.position%></h5>
+                <p><%=@info.description.html_safe%></p><br>
+              <p>This website was made with love <strong>( but also Ruby On Rails )</strong></p>
+              <h3>Skills used in it</h3>
+              <ul class="skills">
+                <% @a = 1 %>
+                <% @skills.each do |skill| %>
+                    <%
+                       if (@a == 1)
+                         @class = 'bg-green'
+                       else
+                         @class = ''
+                       end
+                    %>
+                    <li>
+                      <div class="animate <%=@class%>" style="width:<%=skill.level%>%;"><span><%=skill.name%>&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;<%=skill.level%>%</span></div>
+                    </li>
+                    <% @a = @a + 1 %>
+                <% end %>
+              </ul>
+                <p><a class="bt-black spacer fx1" href="/portfolio">Check my Portfolio &nbsp;&nbsp;<i class="icon-folder-open black"></i></a>&nbsp;&nbsp;<a class="bt-black fx1" href="/contact">Wanna say hi? &nbsp;&nbsp;<i class="icon-envelope green"></i></a></p>
+
             </div>
         </div>
     </section>
     <!-- PROFILE SECTION ENDS -->
 
     <!-- FOOTER SECTION -->
-    <div id="footer">
-        <div class="inner-footer">
-            <div class="one-half-first copyright white">All Rights Reserved to Daniel Sousa 2015</div>
-            <div class="one-half-last txt-right"><a class="sc-icons" href="#"><i class="icon-twitter green"></i></a><a class="sc-icons" href="#"><i class="icon-facebook green"></i></a><a class="sc-icons" href="#"><i class="icon-pinterest green"></i></a><a class="sc-icons" href="#"><i class="icon-linkedin green"></i></a><a class="sc-icons" href="#"><i class="icon-flickr green"></i></a></div>
-        </div>
-    </div>
+   <%= render :template => 'layouts/footer' -%>
     <!-- #footer -->
 </div>
 <!-- #container -->

@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     get 'portfolio', to: 'main#portfolio'
     get 'resume', to: 'main#resume'
     get 'contact', to: 'main#contact'
-
+    get 'thank_you', to: 'main#thank_you'
+    post 'send_mail', to: 'main#send_mail', via: 'post'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   root 'main#index'
 
   # Example of regular route:
-  get 'portfolio/:id' => 'main#view_entry'
+  get 'portfolio/:id/:name' => 'main#view_entry'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

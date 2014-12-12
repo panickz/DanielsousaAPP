@@ -137,7 +137,7 @@
     display: none; }
 
   #header-home, #header {
-    background: #2c3e50;
+    background: #000000;
     z-index: 99999; }
   #header-home #nav, #header #nav {
     width: 100%;

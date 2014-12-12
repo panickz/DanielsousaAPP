@@ -1,0 +1,58 @@
+<div id="container">
+
+  <!-- PORTFOLIO SECTION -->
+  <section id="profile">
+    <div class="content">
+      <!-- BREADCRUMB -->
+      <h5 class="breadcrumb navy"><a href="/">Home</a> / <a href="/portfolio">Portfolio</a> /<%=@entry.name%></h5>
+      <!-- SINGLE PROJECTS MODEL 1 -->
+      <div class="slider">
+        <ul class="rslides" id="slider">
+          <li> <img src="<%= asset_path @entry.img %>" alt="">
+          </li>
+        </ul>
+      </div>
+      <h1><%=@entry.name%></h1>
+      <h5 class="item-status navy"><i class="icon-calendar green"></i>&nbsp; <%=@entry.date%> &nbsp;&nbsp; <i class="icon-user green"></i>&nbsp; Daniel Sousa &nbsp;&nbsp; <i class="icon-camera green"></i>&nbsp; <%=@entry.company%></h5>
+      <p>Check the website: <a href="<%=@entry.link%>" target="_blank"><%=@entry.link%></a></p>
+      <!-- Skills-->
+      <h3>Skills</h3>
+      <ul class="skills">
+        <% @a = 1 %>
+        <% @skills.each do |skill| %>
+            <%
+               if (@a == 1)
+                 @class = 'bg-green'
+               else
+                 @class = ''
+               end
+            %>
+        <li>
+          <div class="animate" style="width:<%=skill.level%>%;"><span><%=skill.name%>&nbsp;&nbsp;<i class="icon-hand-right"></i>&nbsp;&nbsp;<%=skill.level%>%</span></div>
+        </li>
+            <% @a = @a + 1 %>
+       <% end %>
+      </ul>
+      <p><%=@entry.description%></p>
+      <section class="filter-container">
+        <h3>More projects</h3>
+        <ul class="items">
+          <% @projects.each do |project| %>
+          <li class="item-type-2"> <a href="/portfolio/<%= project.id %>/<%= URLify.urlify project.name %>">
+            <div class="bg-container bg-navy"> <i class="icon-picture white"></i> </div>
+            <img alt="" src="<%= asset_path project.cover %>" /> </a>
+            <h4><%=project.name%></h4>
+            <p><%=project.resume%></p>
+          </li>
+          <% end %>
+        </ul>
+      </section>
+    </div>
+  </section>
+  <!-- PORTFOLIO SECTION ENDS -->
+
+  <!-- FOOTER SECTION -->
+  <%= render :template => 'layouts/footer' -%>
+  <!-- #footer -->
+</div>
+

@@ -2,16 +2,22 @@
 
 one:
   title: MyString
+  description: MyText
   email: MyString
-  phone: 
-  name: MyString
+  phone: 1
+  cover_photo: MyString
   position: MyString
-  text: MyText
+  facebook: MyString
+  twitter: MyString
+  linkedin: MyString
 
 two:
   title: MyString
+  description: MyText
   email: MyString
-  phone: 
-  name: MyString
+  phone: 1
+  cover_photo: MyString
   position: MyString
-  text: MyText
+  facebook: MyString
+  twitter: MyString
+  linkedin: MyString

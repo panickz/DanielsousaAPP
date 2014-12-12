@@ -11,64 +11,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141208171200) do
+ActiveRecord::Schema.define(version: 20141211111029) do
 
-  create_table "jobs", force: true do |t|
-    t.string   "title"
-    t.string   "position"
-    t.text     "text"
-    t.string   "first_date"
-    t.string   "seconde_date"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
     t.string   "icon"
+    t.integer  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "portfolios", force: true do |t|
-    t.string   "title"
-    t.text     "text"
+  create_table "hobbies", force: true do |t|
+    t.string   "name"
+    t.integer  "level"
+    t.integer  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobs", force: true do |t|
+    t.string   "company"
+    t.string   "position"
+    t.string   "date"
+    t.text     "description"
+    t.string   "website"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "icon"
+  end
+
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.string   "company"
+    t.string   "link"
+    t.text     "description"
+    t.string   "date"
+    t.string   "level",       limit: 32
+    t.text     "resume"
     t.string   "img"
-    t.string   "img_cover"
-    t.integer  "year"
-    t.integer  "type"
+    t.string   "cover"
+    t.integer  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "skills", force: true do |t|
-    t.string   "title"
-    t.integer  "skill"
-    t.integer  "skills_category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "skills_categories", force: true do |t|
-    t.string   "title"
-    t.integer  "icon"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", force: true do |t|
-    t.string   "provider"
-    t.string   "uid"
     t.string   "name"
-    t.string   "oauth_token"
-    t.datetime "oauth_expires_at"
+    t.integer  "level"
+    t.integer  "category_id"
+    t.integer  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "websites", force: true do |t|
     t.string   "title"
+    t.text     "description"
     t.string   "email"
     t.integer  "phone"
-    t.string   "name"
+    t.string   "cover_photo"
     t.string   "position"
-    t.text     "text"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "linkedin"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
 end
